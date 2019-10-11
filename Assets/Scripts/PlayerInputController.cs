@@ -12,7 +12,7 @@ public class PlayerInputController : MonoBehaviour
     private void Update()
     {
         float move = Input.GetAxis("Horizontal");
-        bool crouch = Input.GetKeyDown(KeyCode.LeftControl);
+        bool crouch = Input.GetKey(KeyCode.LeftControl);
         bool jump = Input.GetKeyDown(KeyCode.Space);
         
         controller.Move(move, crouch, jump);
