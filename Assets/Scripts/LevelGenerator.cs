@@ -15,9 +15,14 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
-        int xPos = 8;
+        Instantiate(
+            PieceManager.instance.pieceStart,
+            Vector3.zero,
+            Quaternion.identity
+        );
         
-        for (int i = 0; i < levelSize; i++)
+        int xPos = 8;
+        for (int i = 0; i < levelSize - 2; i++)
         {
             Instantiate(
                 PieceManager.instance.pieces.GetRandom(),
@@ -27,5 +32,11 @@ public class LevelGenerator : MonoBehaviour
 
             xPos += 8 + xOffset.RandomBetween();
         }
+        
+        Instantiate(
+            PieceManager.instance.pieceEnd,
+            new Vector3(xPos, yOffset.RandomBetween(), 0f),
+            Quaternion.identity
+        );
     }
 }

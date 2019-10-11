@@ -17,5 +17,8 @@ public class PieceManager : MonoBehaviour
         }
     }
 
+    public GameObject pieceStart;
+    public GameObject pieceEnd;
+    
     public GameObject[] pieces;
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -19,13 +18,20 @@ namespace Player
         private void Update()
         {
             move = Input.GetAxis("Horizontal");
-            crouch = Input.GetKey(KeyCode.LeftControl);
-            jump = Input.GetKeyDown(KeyCode.Space);
+
+            if (Input.GetKey(KeyCode.LeftControl))
+                crouch = true;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                jump = true;
         }
 
         private void FixedUpdate()
         {
             controller.Move(move, crouch, jump);
+
+            crouch = false;
+            jump = false;
         }
     }
 }
