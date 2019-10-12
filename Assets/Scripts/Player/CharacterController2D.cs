@@ -22,10 +22,7 @@ namespace Player
 		[Header("Events"), Space]
 		public UnityEvent OnLandEvent;
 		public BoolEvent OnCrouchEvent;
-		
-		private const float groundedRadius = 0.2f;
-		private const float ceilingRadius = 0.2f;
-		
+
 		private bool grounded = false;
 		private bool facingRight = true;
 		private bool wasCrouching = false;
@@ -49,23 +46,21 @@ namespace Player
 			bool wasGrounded = grounded;
 			grounded = false;
 
-			Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
-			foreach (Collider2D col in colliders)
+			Collider2D[] cols = new Collider2D[1];
+			int size = Physics2D.OverlapCircleNonAlloc(groundCheck.position, 0.2f, cols, whatIsGround);
+			if (size > 0)
 			{
-				if (col.gameObject != gameObject)
+				grounded = true;
+				if (!wasGrounded)
 				{
-					grounded = true;
-					if (!wasGrounded)
-					{
-						OnLandEvent.Invoke();
-					}
+					OnLandEvent.Invoke();
 				}
 			}
 		}
 		
 		public void Move(float move, bool crouch, bool jump)
 		{
-			if (!crouch && Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround))
+			if (!crouch && Physics2D.OverlapCircle(ceilingCheck.position, 0.2f, whatIsGround))
 			{
 				crouch = true;
 			}
