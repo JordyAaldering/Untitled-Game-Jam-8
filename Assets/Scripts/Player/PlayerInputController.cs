@@ -20,33 +20,31 @@ namespace Player
         private void Update()
         {
             move = Input.GetAxis("Horizontal");
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-                run = true;
-            else if (Input.GetKeyUp(KeyCode.LeftShift))
-                run = false;
-
-            if (Input.GetKey(KeyCode.LeftControl))
-                crouch = true;
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                jump = true;
-
-            if (Input.GetKeyDown(KeyCode.Q))
-                attack = true;
-            
+            run = Input.GetButton("Sprint");
             anim.Run(run);
-            if (jump) anim.Jump();
-            if (attack) anim.Attack();
+
+            if (Input.GetButtonDown("Crouch"))
+            {
+                crouch = true;
+            }
+
+            if (Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0f)
+            {
+                jump = true;
+                anim.Jump();
+            }
+
+            if (Input.GetButtonDown("Fire"))
+            {
+                attack = true;
+                anim.Attack();
+            }
         }
 
         private void FixedUpdate()
         {
             controller.Move(move, run, crouch, jump);
-
-            crouch = false;
-            jump = false;
-            attack = false;
+            crouch = jump = attack = false;
         }
     }
 }

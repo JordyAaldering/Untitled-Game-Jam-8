@@ -63,7 +63,6 @@ namespace Player
 
         private void Land()
         {
-            Debug.Log("land");
             anim.SetTrigger(AnimLand);
         }
     }
