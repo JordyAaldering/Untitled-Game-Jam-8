@@ -6,7 +6,6 @@ namespace Player
     {
         private float move;
         private bool run, crouch, jump;
-        private bool attack;
 
         private CharacterController2D controller;
         private PlayerAnimatorController anim;
@@ -36,8 +35,7 @@ namespace Player
             }
 
             if (Input.GetButtonDown("Fire"))
-            {
-                attack = true;
+            { 
                 anim.Attack();
             }
         }
@@ -45,7 +43,7 @@ namespace Player
         private void FixedUpdate()
         {
             controller.Move(move, run, crouch, jump);
-            crouch = jump = attack = false;
+            crouch = jump = false;
         }
     }
 }
