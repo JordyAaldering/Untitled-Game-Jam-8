@@ -33,8 +33,9 @@ namespace Environment
             {
                 direction = 1f;
             }
-            
-            transform.Translate(direction * speed * Time.deltaTime * Vector2.right);
+
+            Vector2 dir = horizontal ? Vector2.right : Vector2.up;
+            transform.Translate(direction * speed * Time.deltaTime * dir);
         }
     }
 }
