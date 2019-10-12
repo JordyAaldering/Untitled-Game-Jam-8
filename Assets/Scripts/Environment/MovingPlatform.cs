@@ -11,10 +11,13 @@ namespace Environment
         private float direction = 1f;
         private float origin = 0f;
 
-        private void Start()
+        private void Awake()
         {
             Vector2 position = transform.position;
             origin = horizontal ? position.x : position.y;
+
+            distance += Random.Range(-0.25f, 0.25f);
+            speed += Random.Range(-0.25f, 0.25f);
         }
 
         private void Update()

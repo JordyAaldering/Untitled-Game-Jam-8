@@ -21,10 +21,12 @@ namespace Enemy
         private static readonly int AnimHorizontal = Animator.StringToHash("horizontal");
         private static readonly int AnimVertical = Animator.StringToHash("vertical");
 
-        private void Start ()
+        private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponentInChildren<Animator>();
+
+            speed += Random.Range(-0.25f, 0.25f);
         }
 
         private void FixedUpdate()

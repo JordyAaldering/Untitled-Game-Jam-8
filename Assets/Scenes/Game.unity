@@ -1516,6 +1516,8 @@ MonoBehaviour:
   pieces:
   - {fileID: 5482639398053401238, guid: 907a8a5eeb21e264eb3a086e0d3a24a9, type: 3}
   - {fileID: 5482639398053401238, guid: 969965f1298c8a742b125b6bf20c56eb, type: 3}
+  - {fileID: 4610744494935362564, guid: d83097e7cdd51e24ea8c8d3bd0b578da, type: 3}
+  - {fileID: 3368666076930808439, guid: 32d572bdf907a374c9097a7058721275, type: 3}
   - {fileID: 7254596389479907840, guid: 96ab1f6b0b345764dbb5f65e543ec3a4, type: 3}
   - {fileID: 1971626566978733889, guid: 2cb36cd076fa4ff4d89914d17336a385, type: 3}
   - {fileID: 4324338799011531427, guid: 1fae426735bf05e449144f4dfd3fa14c, type: 3}
@@ -1534,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13925b326918854499afe76987d994f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xOffset: {x: 1, y: 2}
+  xOffset: {x: 1, y: 3}
   yOffset: {x: -2, y: 3}
 --- !u!4 &1488994547
 Transform:
