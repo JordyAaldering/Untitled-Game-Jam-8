@@ -1,21 +1,19 @@
-﻿using Extensions;
+﻿using System;
+using Extensions;
 using UnityEngine;
 
 namespace Environment
 {
     public class LevelGenerator : MonoBehaviour
     {
-        [SerializeField] private int levelSize = 8;
+        public static int LevelSize = 8;
 
         [SerializeField] private Vector2 xOffset = Vector2.zero;
         [SerializeField] private Vector2 yOffset = Vector2.zero;
 
-        private void Start()
-        {
-            GenerateLevel();
-        }
+        private void Awake() => Generate();
 
-        private void GenerateLevel()
+        private void Generate()
         {
             Instantiate(
                 PieceManager.instance.pieceStart,
@@ -25,7 +23,7 @@ namespace Environment
 
             int xPos = 8;
             int yPos = yOffset.RandomBetween();
-            for (int i = 0; i < levelSize - 2; i++)
+            for (int i = 1; i < LevelSize; i++)
             {
                 Instantiate(
                     PieceManager.instance.pieces.GetRandom(),
