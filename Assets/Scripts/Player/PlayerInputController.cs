@@ -20,6 +20,7 @@ namespace Player
         private void Update()
         {
             move = Input.GetAxis("Horizontal");
+            
             run = Input.GetButton("Sprint");
             anim.Run(run);
 
@@ -28,7 +29,7 @@ namespace Player
                 crouch = true;
             }
 
-            if (Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0f)
+            if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
                 anim.Jump();

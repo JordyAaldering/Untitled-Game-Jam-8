@@ -27,7 +27,7 @@ namespace Player
 
         public void Move(Vector2 velocity)
         {
-            anim.SetFloat(AnimHorizontal, velocity.x);
+            anim.SetFloat(AnimHorizontal, Mathf.Abs(velocity.x));
             anim.SetFloat(AnimVertical, velocity.y);
         }
 
