@@ -1,3 +1,5 @@
+#pragma warning disable CS0649
+using Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +8,8 @@ namespace Player
 	public class CharacterController2D : MonoBehaviour
 	{
 		[SerializeField] private float jumpForce = 400f;
+		[SerializeField] private float moveSpeed = 5f;
+		[SerializeField, Range(1f, 2f)] private float runSpeed = 1.1f;
 		[SerializeField, Range(0f, 1f)] private float crouchSpeed = 0.36f;
 		[SerializeField, Range(0f, 0.3f)] private float movementSmoothing = 0.05f;
 
@@ -58,9 +62,11 @@ namespace Player
 			}
 		}
 		
-		public void Move(float move, bool crouch, bool jump)
+		public void Move(float move, bool run, bool crouch, bool jump)
 		{
-			if (!crouch && Physics2D.OverlapCircle(ceilingCheck.position, 0.2f, whatIsGround))
+			Collider2D[] cols = new Collider2D[1];
+			int size = Physics2D.OverlapCircleNonAlloc(ceilingCheck.position, 0.2f, cols, whatIsGround);
+			if (wasCrouching && size > 0)
 			{
 				crouch = true;
 			}
@@ -82,6 +88,11 @@ namespace Player
 				}
 				else
 				{
+					if (run)
+					{
+						move *= runSpeed;
+					}
+
 					if (crouchDisableCollider != null)
 						crouchDisableCollider.enabled = true;
 
@@ -93,7 +104,7 @@ namespace Player
 				}
 
 				Vector2 vel = rb.velocity;
-				Vector3 targetVelocity = new Vector2(move * 10f, vel.y);
+				Vector2 targetVelocity = new Vector2(move * moveSpeed, vel.y);
 				rb.velocity = Vector3.SmoothDamp(vel, targetVelocity, ref velocity, movementSmoothing);
 
 				if (move > 0 && !facingRight || move < 0 && facingRight)
@@ -114,9 +125,8 @@ namespace Player
 			facingRight = !facingRight;
 
 			Transform t = transform;
-			Vector3 scale = t.localScale;
-			scale.x *= -1;
-			t.localScale = scale;
+			Vector2 scale = t.localScale;
+			t.localScale = scale.With(x: -scale.x);
 		}
 	}
 }

@@ -5,6 +5,7 @@ namespace Player
     public class PlayerInputController : MonoBehaviour
     {
         private float move;
+        private bool run;
         private bool crouch;
         private bool jump;
 
@@ -19,6 +20,11 @@ namespace Player
         {
             move = Input.GetAxis("Horizontal");
 
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                run = true;
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+                run = false;
+
             if (Input.GetKey(KeyCode.LeftControl))
                 crouch = true;
 
@@ -28,7 +34,7 @@ namespace Player
 
         private void FixedUpdate()
         {
-            controller.Move(move, crouch, jump);
+            controller.Move(move, run, crouch, jump);
 
             crouch = false;
             jump = false;

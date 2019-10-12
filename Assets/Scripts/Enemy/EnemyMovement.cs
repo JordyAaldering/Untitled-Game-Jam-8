@@ -1,3 +1,4 @@
+#pragma warning disable CS0649
 using Extensions;
 using UnityEngine;
 
@@ -15,10 +16,15 @@ namespace Enemy
         private bool canFlip = false;
         
         private Rigidbody2D rb;
+        private Animator anim;
+        
+        private static readonly int AnimHorizontal = Animator.StringToHash("horizontal");
+        private static readonly int AnimVertical = Animator.StringToHash("vertical");
 
         private void Start ()
         {
             rb = GetComponent<Rigidbody2D>();
+            anim = GetComponentInChildren<Animator>();
         }
 
         private void FixedUpdate()
@@ -42,8 +48,11 @@ namespace Enemy
             
             canFlip = groundSize > 0;
 
-            Vector3 vel = rb.velocity;
-            rb.velocity = vel.With(x: facingRight ? speed : -speed);
+            Vector2 vel = rb.velocity.With(x: facingRight ? speed : -speed);
+            rb.velocity = vel;
+            
+            anim.SetFloat(AnimHorizontal, vel.x);
+            anim.SetFloat(AnimVertical, vel.y);
         }
         
         private void Flip()
