@@ -56,7 +56,7 @@ namespace Player
             anim.SetTrigger(AnimJump);
         }
 
-        private void Crouch(bool crouch)
+        public void Crouch(bool crouch)
         {
             anim.SetBool(AnimCrouch, crouch);
         }

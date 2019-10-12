@@ -23,10 +23,8 @@ namespace Player
             run = Input.GetButton("Sprint");
             anim.Run(run);
 
-            if (Input.GetButtonDown("Crouch"))
-            {
-                crouch = true;
-            }
+            crouch = Input.GetButton("Crouch");
+            anim.Crouch(crouch);
 
             if (Input.GetButtonDown("Jump"))
             {
@@ -43,7 +41,7 @@ namespace Player
         private void FixedUpdate()
         {
             controller.Move(move, run, crouch, jump);
-            crouch = jump = false;
+            jump = false;
         }
     }
 }
