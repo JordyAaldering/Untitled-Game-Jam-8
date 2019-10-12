@@ -37,7 +37,7 @@ namespace Environment
 
             Instantiate(
                 PieceManager.instance.pieceEnd,
-                new Vector3(xPos, yPos, 0f),
+                new Vector3(xPos, yPos + 1f, 0f),
                 Quaternion.identity
             ).transform.parent = transform;
         }

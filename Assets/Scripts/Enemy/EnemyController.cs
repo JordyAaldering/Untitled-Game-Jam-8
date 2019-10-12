@@ -45,6 +45,9 @@ namespace Enemy
 
         public void Die()
         {
+            if (isDead)
+                return;
+            
             isDead = true;
             CanAttack = false;
             movement.enabled = false;

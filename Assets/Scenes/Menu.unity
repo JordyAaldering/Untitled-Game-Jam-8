@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Title
+  m_text: Soul Harvester
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8edd2dbdf2f9c434a8faf8528155d438, type: 2}
   m_sharedMaterial: {fileID: -4011344122933920947, guid: 8edd2dbdf2f9c434a8faf8528155d438,
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1333591290}
-    characterCount: 10
+    characterCount: 14
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -1697,6 +1697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeText: {fileID: 1182394914}
+  gameOverPanel: {fileID: 0}
+  gameWonPanel: {fileID: 0}
 --- !u!1 &1855715119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Untitled Game Jam 8
+  m_text: Untitled Game Jam 8 Submission
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 809c4c1e5cae58d438ab1e5b02236497, type: 2}
   m_sharedMaterial: {fileID: 3541312444901817038, guid: 809c4c1e5cae58d438ab1e5b02236497,
@@ -1879,8 +1881,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 84
-  m_fontSizeBase: 84
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 64
@@ -1920,10 +1922,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1926323067}
-    characterCount: 19
+    characterCount: 30
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 4
+    wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1

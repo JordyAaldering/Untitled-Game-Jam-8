@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13925b326918854499afe76987d994f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xOffset: {x: 1, y: 3}
+  xOffset: {x: 1, y: 2}
   yOffset: {x: -2, y: 3}
 --- !u!4 &1488994547
 Transform:
