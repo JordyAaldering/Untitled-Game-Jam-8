@@ -33,10 +33,12 @@ namespace Player
 		
 		private Rigidbody2D rb;
 		private Vector3 velocity;
+		private PlayerAnimatorController anim;
 
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody2D>();
+			anim = GetComponentInChildren<PlayerAnimatorController>();
 
 			if (OnLandEvent == null)
 				OnLandEvent = new UnityEvent();
@@ -105,7 +107,10 @@ namespace Player
 
 				Vector2 vel = rb.velocity;
 				Vector2 targetVelocity = new Vector2(move * moveSpeed, vel.y);
-				rb.velocity = Vector3.SmoothDamp(vel, targetVelocity, ref velocity, movementSmoothing);
+
+				vel = Vector3.SmoothDamp(vel, targetVelocity, ref velocity, movementSmoothing);
+				rb.velocity = vel;
+				anim.Move(vel);
 
 				if (move > 0 && !facingRight || move < 0 && facingRight)
 				{

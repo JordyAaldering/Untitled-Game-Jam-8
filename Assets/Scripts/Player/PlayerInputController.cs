@@ -5,15 +5,16 @@ namespace Player
     public class PlayerInputController : MonoBehaviour
     {
         private float move;
-        private bool run;
-        private bool crouch;
-        private bool jump;
+        private bool run, crouch, jump;
+        private bool attack;
 
         private CharacterController2D controller;
+        private PlayerAnimatorController anim;
 
         private void Awake()
         {
             controller = GetComponent<CharacterController2D>();
+            anim = GetComponentInChildren<PlayerAnimatorController>();
         }
 
         private void Update()
@@ -30,6 +31,13 @@ namespace Player
 
             if (Input.GetKeyDown(KeyCode.Space))
                 jump = true;
+
+            if (Input.GetKeyDown(KeyCode.Q))
+                attack = true;
+            
+            anim.Run(run);
+            if (jump) anim.Jump();
+            if (attack) anim.Attack();
         }
 
         private void FixedUpdate()
@@ -38,6 +46,7 @@ namespace Player
 
             crouch = false;
             jump = false;
+            attack = false;
         }
     }
 }
