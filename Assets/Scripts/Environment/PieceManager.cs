@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Extensions;
+using UnityEngine;
 
 namespace Environment
 {
@@ -23,5 +24,6 @@ namespace Environment
         public GameObject pieceEnd;
 
         public GameObject[] pieces;
+        public GameObject Piece => pieces.GetRandom();
     }
 }
