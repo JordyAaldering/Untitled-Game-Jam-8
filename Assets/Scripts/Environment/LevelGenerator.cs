@@ -1,6 +1,7 @@
 ﻿using System;
 using Extensions;
 using UnityEngine;
+using Utilities;
 
 namespace Environment
 {
@@ -13,7 +14,7 @@ namespace Environment
 
         private int XOffset => xOffset.RandomBetween();
         private int YOffset => yOffset.RandomBetween();
-        
+
         private void Awake() => Generate();
 
         private void Generate()

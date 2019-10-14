@@ -2146,11 +2146,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 308943522}
-    - target: {fileID: 7028516631379745286, guid: 3be8f34e981b7e3448fecfb8eb8f87df,
-        type: 3}
-      propertyPath: m_UnlimitedSoftZone
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7028516631251253998, guid: 3be8f34e981b7e3448fecfb8eb8f87df,
         type: 3}
       propertyPath: m_Enabled

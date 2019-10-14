@@ -1,5 +1,5 @@
-﻿using Extensions;
-using UnityEngine;
+﻿using UnityEngine;
+using Utilities;
 
 namespace Environment
 {
@@ -24,6 +24,8 @@ namespace Environment
         public GameObject pieceEnd;
 
         public GameObject[] pieces;
-        public GameObject Piece => pieces.GetRandom();
+        
+        private readonly UniqueRandom Random = new UniqueRandom(3);
+        public GameObject Piece => pieces[Random.Range(0, pieces.Length)];
     }
 }
