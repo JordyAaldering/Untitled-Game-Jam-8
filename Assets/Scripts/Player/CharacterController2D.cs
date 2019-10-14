@@ -19,12 +19,7 @@ namespace Player
 		[SerializeField] private Transform ceilingCheck;
 		[SerializeField] private Collider2D crouchDisableCollider;
 
-		[System.Serializable]
-		public class BoolEvent : UnityEvent<bool> { }
-		
-		[Header("Events"), Space]
-		public UnityEvent OnLandEvent = new UnityEvent();
-		public BoolEvent OnCrouchEvent = new BoolEvent();
+		[HideInInspector] public UnityEvent OnLandEvent = new UnityEvent();
 
 		private bool hasJumped = false;
 		private bool grounded = false;
@@ -52,9 +47,7 @@ namespace Player
 			if (grounded && !wasGrounded)
 			{
 				if (!hasJumped)
-				{
 					OnLandEvent.Invoke();
-				}
 
 				hasJumped = false;
 			}
@@ -73,25 +66,17 @@ namespace Player
 			if (crouch)
 			{
 				if (!wasCrouching)
-				{
 					wasCrouching = true;
-					OnCrouchEvent.Invoke(true);
-				}
 
 				move *= crouchSpeed;
 			}
 			else
 			{
 				if (run)
-				{
 					move *= runSpeed;
-				}
 
 				if (wasCrouching)
-				{
 					wasCrouching = false;
-					OnCrouchEvent.Invoke(false);
-				}
 			}
 
 			Vector2 vel = rb.velocity;
@@ -102,9 +87,7 @@ namespace Player
 			anim.Move(vel);
 
 			if (move > 0 && !facingRight || move < 0 && facingRight)
-			{
 				Flip();
-			}
 			
 			if (grounded && jump)
 			{

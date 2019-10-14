@@ -19,9 +19,7 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Enemy") && other.gameObject.GetComponent<EnemyController>().CanAttack)
-            {
                 StartCoroutine(Die());
-            }
         }
 
         private IEnumerator Die()
@@ -30,10 +28,9 @@ namespace Player
             
             GetComponentInChildren<PlayerAnimatorController>().Die();
             GetComponent<PlayerInputController>().enabled = false;
-            GetComponent<CharacterController2D>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             FindObjectOfType<Menu>().GameOver();
         }
@@ -43,7 +40,6 @@ namespace Player
             if (other.CompareTag("End"))
             {
                 GetComponent<PlayerInputController>().enabled = false;
-                GetComponent<CharacterController2D>().enabled = false;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 
                 FindObjectOfType<Menu>().GameWon();

@@ -7,11 +7,8 @@ namespace Utilities
     {
         private readonly int[] last;
 
-        public UniqueRandom(int size)
-        {
-            last = new int[size];
-        }
-        
+        public UniqueRandom(int size) => last = new int[size];
+
         public int Range(int from, int to)
         {
             int val;

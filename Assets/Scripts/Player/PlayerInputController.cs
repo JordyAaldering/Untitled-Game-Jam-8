@@ -7,12 +7,12 @@ namespace Player
         private float move;
         private bool run, crouch, jump;
 
-        private CharacterController2D controller;
+        private CharacterController2D cc;
         private PlayerAnimatorController anim;
 
         private void Awake()
         {
-            controller = GetComponent<CharacterController2D>();
+            cc = GetComponent<CharacterController2D>();
             anim = GetComponentInChildren<PlayerAnimatorController>();
         }
 
@@ -33,14 +33,12 @@ namespace Player
             }
 
             if (Input.GetButtonDown("Fire"))
-            { 
                 anim.Attack();
-            }
         }
 
         private void FixedUpdate()
         {
-            controller.Move(move, run, crouch, jump);
+            cc.Move(move, run, crouch, jump);
             jump = false;
         }
     }

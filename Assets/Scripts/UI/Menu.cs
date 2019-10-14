@@ -12,14 +12,11 @@ namespace UI
         [SerializeField] private GameObject gameOverPanel;
         [SerializeField] private GameObject gameWonPanel;
 
-        public void GameOver() => gameOverPanel.SetActive(true);
-
-        public void GameWon() => gameWonPanel.SetActive(true);
-
-        public void SetLevelSize(float size)
+        public void SetLevelSize(float amount)
         {
-            sizeText.text = $"Level Size: {(int) size}";
-            LevelGenerator.LevelSize = (int) size;
+            int size = (int) amount;
+            sizeText.text = $"Level Size: {size}";
+            LevelGenerator.LevelSize = size;
         }
 
         public void LoadScene(int scene)
@@ -27,6 +24,10 @@ namespace UI
             RandomBG.Randomize = SceneManager.GetActiveScene().buildIndex > 0;
             SceneManager.LoadScene(scene);
         }
+
+        public void GameOver() => gameOverPanel.SetActive(true);
+
+        public void GameWon() => gameWonPanel.SetActive(true);
 
         public void Quit() => Application.Quit();
     }
