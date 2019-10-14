@@ -3,9 +3,7 @@
 // http://www.digitalruby.com
 //
 
-using System;
 using UnityEngine;
-using System.Collections;
 
 namespace DigitalRuby.RainMaker
 {
@@ -45,13 +43,13 @@ namespace DigitalRuby.RainMaker
 
         private void EmitExplosion(ref Vector3 pos)
         {
-            int count = UnityEngine.Random.Range(2, 5);
+            int count = Random.Range(2, 5);
             while (count != 0)
             {
-                float xVelocity = UnityEngine.Random.Range(-2.0f, 2.0f) * cameraMultiplier;
-                float yVelocity = UnityEngine.Random.Range(1.0f, 3.0f) * cameraMultiplier;
-                float lifetime = UnityEngine.Random.Range(0.1f, 0.2f);
-                float size = UnityEngine.Random.Range(0.05f, 0.1f) * cameraMultiplier;
+                float xVelocity = Random.Range(-2.0f, 2.0f) * cameraMultiplier;
+                float yVelocity = Random.Range(1.0f, 3.0f) * cameraMultiplier;
+                float lifetime = Random.Range(0.1f, 0.2f);
+                float size = Random.Range(0.05f, 0.1f) * cameraMultiplier;
                 ParticleSystem.EmitParams param = new ParticleSystem.EmitParams();
                 param.position = pos;
                 param.velocity = new Vector3(xVelocity, yVelocity, 0.0f);
@@ -111,7 +109,7 @@ namespace DigitalRuby.RainMaker
                         }
                         else
                         {
-                            particles[i].remainingLifetime = Mathf.Min(particles[i].remainingLifetime, UnityEngine.Random.Range(CollisionLifeTimeRain * 0.5f, CollisionLifeTimeRain * 2.0f));
+                            particles[i].remainingLifetime = Mathf.Min(particles[i].remainingLifetime, Random.Range(CollisionLifeTimeRain * 0.5f, CollisionLifeTimeRain * 2.0f));
                             pos += (particles[i].velocity * Time.deltaTime);
                         }
                         changes = true;
