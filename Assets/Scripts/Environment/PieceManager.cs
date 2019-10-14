@@ -9,15 +9,7 @@ namespace Environment
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != this)
-            {
-                Debug.LogError("Instance already exists.");
-                Destroy(gameObject);
-            }
+            instance = this;
         }
 
         public GameObject pieceStart;
