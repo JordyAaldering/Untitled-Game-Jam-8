@@ -729,30 +729,6 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 7028516630542706553}
-    - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
-      propertyPath: CollisionMask.m_Bits
-      value: 769
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
-      propertyPath: RainHeightMultiplier
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
-      propertyPath: RainWidthMultiplier
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
-      propertyPath: RainIntensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
-      propertyPath: WindSpeedRange.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475408, guid: b046278bb9b6e104790392b566667ba5, type: 3}
-      propertyPath: EnableWind
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b046278bb9b6e104790392b566667ba5, type: 3}
 --- !u!1 &769731154
@@ -2091,7 +2067,7 @@ PrefabInstance:
     - target: {fileID: 7028516630914785272, guid: 3be8f34e981b7e3448fecfb8eb8f87df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8503323
+      value: 1.8499119
       objectReference: {fileID: 0}
     - target: {fileID: 7028516630914785272, guid: 3be8f34e981b7e3448fecfb8eb8f87df,
         type: 3}
