@@ -117,5 +117,4 @@
 *.prefab linguist-generated
 *.unity  linguist-generated
 
-Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.shader linguist-detectable=false
-Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.gcinc linguist-detectable=false
+Assets/TextMesh[[:space:]]Pro/* -linguist-vendored
