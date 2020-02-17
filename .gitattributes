@@ -1,13 +1,10 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-
 # Unity
-*.cs     text diff=csharp
-
-Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.shader linguist-vendored=true
-Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.gcinc linguist-vendored=true
 Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.shader linguist-detectable=false
 Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.gcinc linguist-detectable=false
+
+*.cginc  text
+*.cs     text diff=csharp
+*.shader text
 
 # Unity YAML
 *.mat    merge=unityyamlmerge eol=lf
