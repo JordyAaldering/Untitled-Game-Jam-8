@@ -6,6 +6,8 @@
 *.cs     text diff=csharp
 *.shader text
 
+Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.shader linguist-vendored=true
+Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.gcinc linguist-vendored=true
 Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.shader linguist-detectable=false
 Assets/TextMesh[[:space:]]Pro/Resources/Shaders/*.gcinc linguist-detectable=false
 
